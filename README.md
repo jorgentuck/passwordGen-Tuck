@@ -31,7 +31,7 @@
 ### Pages
 
 #### index.html
-
+![index.html](assets/passwordGen.png)
 
 - - -
 
