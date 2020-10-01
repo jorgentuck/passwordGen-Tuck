@@ -6,6 +6,15 @@ var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"
 var numericArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialArray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 var masterArray = [];
+var passArray = [];
+var pickedLower = false;
+var pickedUpper = false;
+var pickedNumeric = false;
+var pickedSpecial = false;
+var hasLower = false;
+var hasUpper = false;
+var hasNumeric = false;
+var hasSpecial = false;
 
 // Write password to the #password input
 function writePassword() {
@@ -28,36 +37,123 @@ function generatePassword() {
     alert("Please choose a number between 8 and 128. You chose " + length);
     generatePassword();
   } else {
-    createPassword(parseInt(length));
+    var generatePasswordReturn = createPassword(parseInt(length));
+    return generatePasswordReturn;
   }
 
 };
 
-function createPassword(passwordLength){
+function createPassword(passwordLength) {
+  passArray = [];
+  masterArray = [];
   var lowercase = confirm("Would you like to use lowercase characters in your password?");
   var uppercase = confirm("Would you like to use uppercase characters in your password?");
   var numeric = confirm("Would you like to use numeric characters in your password?");
   var special = confirm("Would you like to use special characters in your password?");
 
-  if(lowercase){
+  if (lowercase) {
     masterArray.push(lowercaseArray);
-    console.log(masterArray);
-  }
+    pickedLower = true;
+  };
 
-  if(uppercase){
+  if (uppercase) {
     masterArray.push(uppercaseArray);
-    console.log(masterArray);
-  }
+    pickedUpper = true;
+  };
 
-  if(numeric){
+  if (numeric) {
     masterArray.push(numericArray);
-    console.log(masterArray);
-  }
+    pickedNumeric = true;
+  };
 
-  if(special){
+  if (special) {
     masterArray.push(specialArray);
-    console.log(masterArray);
-  }
+    pickedSpecial = true;
+  };
+
+  for (var i = 0; i < passwordLength; i++) {
+
+    var masterIndex = Math.floor(Math.random() * masterArray.length);
+    passArray.push(masterArray[masterIndex][Math.floor(Math.random() * masterArray[masterIndex].length)]);
+  };
+
+  for (var i = 0; i < passArray.length; i++) {
+    if (pickedLower && lowercaseArray.includes(passArray[i])) {
+      hasLower = true;
+    }
+    else if (!pickedLower) {
+      hasUpper = true;
+    }
+    else if (pickedUpper && uppercaseArray.includes(passArray[i])) {
+      hasUpper = true;
+    }
+    else if (!pickedUpper) {
+      hasUpper = true;
+    }
+    else if (pickedNumeric && numericArray.includes(passArray[i])) {
+      hasNumeric = true;
+    }
+    else if (!pickedNumeric) {
+      hasNumeric = true;
+    }
+    else if (pickedSpecial && specialArray.includes(passArray[i])) {
+      hasSpecial = true;
+    }
+    else if (!pickedSpecial) {
+      hasSpecial = true;
+    };
+    if (hasLower && hasUpper && hasNumeric && hasSpecial) {
+      var passFinal = passArray.join("");
+      return passFinal;
+    } else {
+      passwordRerun(passwordLength);
+    };
+  };
+};
+
+function passwordRerun(passwordLength) {
+
+  passArray = [];
+  for (var i = 0; i < passwordLength; i++) {
+
+    var masterIndex = Math.floor(Math.random() * masterArray.length);
+    passArray.push(masterArray[masterIndex][Math.floor(Math.random() * masterArray[masterIndex].length)]);
+  };
+  for (var i = 0; i < passArray.length; i++) {
+    if (pickedLower && lowercaseArray.includes(passArray[i])) {
+      hasLower = true;
+    }
+    else if (!pickedLower) {
+      hasUpper = true;
+    }
+    else if (pickedUpper && uppercaseArray.includes(passArray[i])) {
+      hasUpper = true;
+    }
+    else if (!pickedUpper) {
+      hasUpper = true;
+    }
+    else if (pickedNumeric && numericArray.includes(passArray[i])) {
+      hasNumeric = true;
+    }
+    else if (!pickedNumeric) {
+      hasNumeric = true;
+    }
+    else if (pickedSpecial && specialArray.includes(passArray[i])) {
+      hasSpecial = true;
+    }
+    else if (!pickedSpecial) {
+      hasSpecial = true;
+    };
+    if (hasLower && hasUpper && hasNumeric && hasSpecial) {
+      var passFinal = passArray.join("");
+      return passFinal;
+    } else {
+      passwordRerun(passwordLength);
+    };
+  };
+
+
+
 }
 
 // Add event listener to generate button
