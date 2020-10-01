@@ -112,7 +112,10 @@ function createPassword(passwordLength) {
 };
 
 function passwordRerun(passwordLength) {
-
+  hasLower = false;
+  hasUpper = false;
+  hasNumeric = false;
+  hasSpecial = false;
   passArray = [];
   for (var i = 0; i < passwordLength; i++) {
 
