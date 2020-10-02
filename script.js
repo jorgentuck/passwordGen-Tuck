@@ -25,8 +25,8 @@ function writePassword() {
 }
 // Prompt for the length of the desired password and some input checks
 function lengthPrompt() {
-    var length = prompt("How many characters would you like the password to be?\nPlease pick a number between 8 and 128");
-    if (length === null) {
+  var length = prompt("How many characters would you like the password to be?\nPlease pick a number between 8 and 128");
+  if (length === null) {
     return "";
   } else if (isNaN(length)) {
     alert("Please choose a number");
@@ -78,9 +78,10 @@ function passPrompts(passwordLength) {
   if (!pickedLower && !pickedUpper && !pickedNumeric && !pickedSpecial) {
     alert("Please pick at least 1 option, preferablly more than one");
     passPrompts(passwordLength);
-  }
-  var generatePasswordReturn = generatePasswordArray(passwordLength);
-  return generatePasswordReturn;
+  } else {
+    var generatePasswordReturn = generatePasswordArray(passwordLength);
+    return generatePasswordReturn;
+  };
 };
 
 // Generates a random password
@@ -104,21 +105,21 @@ function errorCheckPassword(passwordLength) {
     else if (!pickedLower) {
       hasLower = true;
     };
-    
+
     if (pickedUpper && uppercaseArray.includes(passArray[i])) {
       hasUpper = true;
     }
     else if (!pickedUpper) {
       hasUpper = true;
     };
-    
+
     if (pickedNumeric && numericArray.includes(passArray[i])) {
       hasNumeric = true;
     }
     else if (!pickedNumeric) {
       hasNumeric = true;
     };
-    
+
     if (pickedSpecial && specialArray.includes(passArray[i])) {
       hasSpecial = true;
     }
