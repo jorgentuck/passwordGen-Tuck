@@ -26,8 +26,8 @@
 
 ## Links
 
-#####[Link to webpage](https://jamesjtuckbc.github.io/passwordGen/)
-#####[Link to repo](https://github.com/jamesjtuckbc/passwordGen)
+#####[Link to webpage](https://jamesjtuckbc.github.io/passwordGen-Tuck/)
+#####[Link to repo](https://github.com/jamesjtuckbc/passwordGen-Tuck)
 ### Pages
 
 #### index.html
