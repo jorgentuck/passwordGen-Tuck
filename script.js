@@ -82,7 +82,7 @@ function createPassword(passwordLength) {
       hasLower = true;
     }
     else if (!pickedLower) {
-      hasUpper = true;
+      hasLower = true;
     }
     else if (pickedUpper && uppercaseArray.includes(passArray[i])) {
       hasUpper = true;
@@ -102,12 +102,13 @@ function createPassword(passwordLength) {
     else if (!pickedSpecial) {
       hasSpecial = true;
     };
-    if (hasLower && hasUpper && hasNumeric && hasSpecial) {
-      var passFinal = passArray.join("");
-      return passFinal;
-    } else {
-      passwordRerun(passwordLength);
-    };
+    
+  };
+  if (hasLower && hasUpper && hasNumeric && hasSpecial) {
+    var passFinal = passArray.join("");
+    return passFinal;
+  } else {
+    passwordRerun(passwordLength);
   };
 };
 
@@ -127,7 +128,7 @@ function passwordRerun(passwordLength) {
       hasLower = true;
     }
     else if (!pickedLower) {
-      hasUpper = true;
+      hasLower = true;
     }
     else if (pickedUpper && uppercaseArray.includes(passArray[i])) {
       hasUpper = true;
@@ -147,12 +148,13 @@ function passwordRerun(passwordLength) {
     else if (!pickedSpecial) {
       hasSpecial = true;
     };
-    if (hasLower && hasUpper && hasNumeric && hasSpecial) {
-      var passFinal = passArray.join("");
-      return passFinal;
-    } else {
-      passwordRerun(passwordLength);
-    };
+    
+  };
+  if (hasLower && hasUpper && hasNumeric && hasSpecial) {
+    var passFinal = passArray.join("");
+    return passFinal;
+  } else {
+    passwordRerun(passwordLength);
   };
 
 
