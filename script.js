@@ -23,7 +23,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// Prompt for the length of the desired password and some input checks
 function lengthPrompt() {
     var length = prompt("How many characters would you like the password to be?\nPlease pick a number between 8 and 128");
     if (length === null) {
@@ -43,6 +43,7 @@ function lengthPrompt() {
   }
 };
 
+// Prompts for what type of characters for the password is wanted
 function passPrompts(passwordLength) {
   passArray = [];
   masterArray = [];
@@ -51,21 +52,25 @@ function passPrompts(passwordLength) {
   var numeric = confirm("Would you like to use numeric characters in your password?");
   var special = confirm("Would you like to use special characters in your password?");
 
+  // updates master array and bool
   if (lowercase) {
     masterArray.push(lowercaseArray);
     pickedLower = true;
   };
 
+  // updates master array and bool
   if (uppercase) {
     masterArray.push(uppercaseArray);
     pickedUpper = true;
   };
 
+  // updates master array and bool
   if (numeric) {
     masterArray.push(numericArray);
     pickedNumeric = true;
   };
 
+  // updates master array and bool
   if (special) {
     masterArray.push(specialArray);
     pickedSpecial = true;
@@ -74,6 +79,7 @@ function passPrompts(passwordLength) {
   return generatePasswordReturn;
 };
 
+// Generates a random password
 function generatePasswordArray(passwordLength) {
   for (var i = 0; i < passwordLength; i++) {
 
@@ -84,6 +90,8 @@ function generatePasswordArray(passwordLength) {
   return generatePasswordReturn;
 };
 
+
+// Checks to confirm password matches users choices and re-runs generatePasswordArray if it does not
 function errorCheckPassword(passwordLength) {
   for (var i = 0; i < passArray.length; i++) {
     if (pickedLower && lowercaseArray.includes(passArray[i])) {
@@ -110,7 +118,6 @@ function errorCheckPassword(passwordLength) {
     else if (!pickedSpecial) {
       hasSpecial = true;
     };
-
   };
   if (hasLower && hasUpper && hasNumeric && hasSpecial) {
     var passFinal = passArray.join("");
@@ -121,6 +128,7 @@ function errorCheckPassword(passwordLength) {
   };
 };
 
+// resets error checking bools if password sdoes not match criteria
 function varReset() {
   hasLower = false;
   hasUpper = false;
