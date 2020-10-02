@@ -99,20 +99,23 @@ function errorCheckPassword(passwordLength) {
     }
     else if (!pickedLower) {
       hasLower = true;
-    }
-    else if (pickedUpper && uppercaseArray.includes(passArray[i])) {
+    };
+    
+    if (pickedUpper && uppercaseArray.includes(passArray[i])) {
       hasUpper = true;
     }
     else if (!pickedUpper) {
       hasUpper = true;
-    }
-    else if (pickedNumeric && numericArray.includes(passArray[i])) {
+    };
+    
+    if (pickedNumeric && numericArray.includes(passArray[i])) {
       hasNumeric = true;
     }
     else if (!pickedNumeric) {
       hasNumeric = true;
-    }
-    else if (pickedSpecial && specialArray.includes(passArray[i])) {
+    };
+    
+    if (pickedSpecial && specialArray.includes(passArray[i])) {
       hasSpecial = true;
     }
     else if (!pickedSpecial) {
