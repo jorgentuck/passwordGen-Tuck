@@ -75,6 +75,10 @@ function passPrompts(passwordLength) {
     masterArray.push(specialArray);
     pickedSpecial = true;
   };
+  if (!pickedLower && !pickedUpper && !pickedNumeric && !pickedSpecial) {
+    alert("Please pick at least 1 option, preferablly more than one");
+    passPrompts(passwordLength);
+  }
   var generatePasswordReturn = generatePasswordArray(passwordLength);
   return generatePasswordReturn;
 };
