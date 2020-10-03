@@ -26,13 +26,13 @@ function lengthPrompt() {
     return "";
   } else if (isNaN(length)) {
     alert("Please choose a number");
-    writePassword();
+    lengthPrompt();
   } else if (!Number.isInteger(parseFloat(length))) {
     alert("Please pick a whole number");
-    writePassword();
+    lengthPrompt();
   } else if (parseInt(length) < 8 || parseInt(length) > 128) {
     alert("Please choose a number between 8 and 128. You chose " + length);
-    writePassword();
+    lengthPrompt();
   } else {
     passPrompts(parseInt(length));
   };
