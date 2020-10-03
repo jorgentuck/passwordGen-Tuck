@@ -31,7 +31,7 @@ function lengthPrompt() {
   } else if (isNaN(length)) {
     alert("Please choose a number");
     lengthPrompt();
-  } else if (!Number.isInteger(parseInt(length))) {
+  } else if (!Number.isInteger(parseFloat(length))) {
     alert("Please pick a whole number");
     lengthPrompt();
   } else if (parseInt(length) < 8 || parseInt(length) > 128) {
