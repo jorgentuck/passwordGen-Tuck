@@ -136,7 +136,7 @@ function errorCheckPassword(passwordLength) {
   };
 };
 
-// resets error checking bools if password sdoes not match criteria
+// resets error checking bools if password does not match criteria
 function varReset() {
   hasLower = false;
   hasUpper = false;
