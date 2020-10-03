@@ -17,12 +17,8 @@ var hasSpecial = false; //bool to track what types of charaters are in the passA
 
 // Write password to the #password input
 function writePassword() {
-  var password = lengthPrompt();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
+  lengthPrompt();
+};
 // Prompt for the length of the desired password and some input checks
 function lengthPrompt() {
   var length = prompt("How many characters would you like the password to be?\nPlease pick a number between 8 and 128");
@@ -30,17 +26,16 @@ function lengthPrompt() {
     return "";
   } else if (isNaN(length)) {
     alert("Please choose a number");
-    lengthPrompt();
+    writePassword();
   } else if (!Number.isInteger(parseFloat(length))) {
     alert("Please pick a whole number");
-    lengthPrompt();
+    writePassword();
   } else if (parseInt(length) < 8 || parseInt(length) > 128) {
     alert("Please choose a number between 8 and 128. You chose " + length);
-    lengthPrompt();
+    writePassword();
   } else {
-    var generatePasswordReturn = passPrompts(parseInt(length));
-    return generatePasswordReturn;
-  }
+    passPrompts(parseInt(length));
+  };
 };
 
 // Prompts for what type of characters for the password is wanted
@@ -79,8 +74,7 @@ function passPrompts(passwordLength) {
     alert("Please pick at least 1 option, preferablly more than one");
     passPrompts(passwordLength);
   } else {
-    var generatePasswordReturn = generatePasswordArray(passwordLength);
-    return generatePasswordReturn;
+    generatePasswordArray(passwordLength);
   };
 };
 
@@ -92,7 +86,8 @@ function generatePasswordArray(passwordLength) {
     passArray.push(masterArray[masterIndex][Math.floor(Math.random() * masterArray[masterIndex].length)]);
   };
   var generatePasswordReturn = errorCheckPassword(passwordLength);
-  return generatePasswordReturn;
+  var passwordText = document.querySelector("#password");
+  passwordText.value = generatePasswordReturn;
 };
 
 
