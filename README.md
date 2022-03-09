@@ -28,8 +28,8 @@
 
 ## Links
 
-#####[Link to webpage](https://jamesjtuckbc.github.io/passwordGen-Tuck/)
-#####[Link to repo](https://github.com/jamesjtuckbc/passwordGen-Tuck)
+#####[Link to webpage](https://jorgentuck.github.io/passwordGen-Tuck/)
+#####[Link to repo](https://github.com/jorgentuck/passwordGen-Tuck)
 ### Pages
 
 #### index.html
